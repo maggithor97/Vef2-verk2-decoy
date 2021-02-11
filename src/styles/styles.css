@@ -1,0 +1,111 @@
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  background-color: #ffffec;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header_h1 {
+  width: min-content;
+}
+
+.skrifa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skrifa_textbox {
+  display: flex;
+  justify-content: center;
+}
+
+.skrifa_lysing {
+  width: 8rem;
+}
+
+.skrifa_textbox_text {
+  height: 2rem;
+  width: 40rem;
+}
+
+.skrifa_textbox_comment {
+  height: 4rem;
+}
+
+.skrifa_checkbox {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.skrifa_checkbox_lysing {
+  margin: 0px;
+  margin-left: 0.5rem;
+}
+
+.skrifa_button {
+  width: 14rem;
+  height: 3rem;
+}
+
+.skrifa_button_text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: auto;
+}
+
+.skrifa_lina {
+  border-top: 1px dashed #6d5536;
+  width: 48rem;
+}
+
+/*******Table***********/
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 48rem;
+}
+
+td,
+th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+@media all and (max-width: 900px) {
+  .skrifa_lysing {
+    width: 10vw;
+  }
+
+  .skrifa_textbox_text {
+    width: 85vw;
+  }
+
+  .skrifa_button {
+    max-width: 90vw;
+  }
+
+  .skrifa_button_text {
+    font-size: 1.3rem;
+  }
+
+  .skrifa_lina {
+    width: 95vw;
+  }
+
+  table {
+    width: 95vw;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
