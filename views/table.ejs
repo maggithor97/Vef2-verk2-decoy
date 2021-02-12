@@ -1,0 +1,36 @@
+<table>
+    <tr>
+        <th>Dags</th>
+        <th>Nafn</th>
+        <th>Athugasemd</th>
+    </tr>
+    <%console.log(data.length)%>
+    <%let n = data.length;%>
+    <% for(let i=0; i < n; i= i+1) {%>
+        
+        <% if(!data[i].anonymous){%>
+            <tr>
+
+                <td>
+                <%- formatDate(data[i].signed) -%>
+                </td>
+                <td>
+                    <%- data[i].name -%>
+                </td>
+                <td>
+                    <%- data[i].comment -%>
+                </td>
+            </tr>
+        <%}%>
+    <%}%>
+                            <tr>
+                                <td>20.Apríl 2420</td>
+                                <td>Maggi</td>
+                                <td>Mér finnst lasagna gott og ég hata mánudaga.Mér finnst lasagna gott og ég hata
+                                    mánudaga.Mér finnst lasagna
+                                    gott og ég hata mánudaga.Mér finnst lasagna gott og ég hata mánudaga.Mér finnst
+                                    lasagna gott og ég hata
+                                    mánudaga.Mér finnst lasagna gott og ég hata mánudaga.</td>
+
+                            </tr>
+</table>

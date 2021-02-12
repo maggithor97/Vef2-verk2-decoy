@@ -3,8 +3,6 @@ import dotenv from 'dotenv';
 import fs from 'fs';
 
 // Ná í SQL file
-const insertData = fs.readFileSync('sql/fake.sql').toString();
-const schema = fs.readFileSync('sql/schema.sql').toString();
 
 dotenv.config();
 /*
@@ -13,8 +11,8 @@ const {
 } = process.env;
 */
 
-const connectionString = 'leyndó';
-const client = new pg.Client({ connectionString });
+const connectionString = 'postgres://maggi:maggithorSQL@localhost/v2';
+
 
 if (!connectionString) {
   console.error('Vantar DATABASE_URL');
@@ -25,38 +23,37 @@ if (!connectionString) {
 
 
 async function query(q, values = []) {
-  //const client = new Client({ connectionString });
+  const client = new pg.Client({ connectionString });
 
   await client.connect();
 
   try {
     const result = await client.query(q, values);
 
-    return result;
+    return result.rows;
   } catch (err) {
     throw err;
   } finally {
     await client.end();
   }
 }
-/******TEST */
+
+/**
+ * Gets SQL data
+ */
+export async function getAllData() {
+  let database = query("SELECT * FROM signatures;")
+  
+  return database;
+}
+
+
+
+
+/******TEST 
 var bladra = query("select * from signatures;")
 bladra.then((res)=>{
-  console.log(res.rows)
+  console.log(res)
 })
 /**************** */
 
-
-/*
-client.connect();
-client.query('select * from signatures;', (err, res) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log("Hello")
-      console.log(res.rows)
-    }
-  
-    client.end();
-  });
-  */
