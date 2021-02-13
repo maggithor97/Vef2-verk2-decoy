@@ -1,19 +1,32 @@
 {
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "concurrently npm:lint:*",
+    "lint:stylelint": "stylelint styles/styles.scss",
+    "lint:eslint": "",
     "sass": "sass --watch styles/styles.scss styles/styles.css",
+    "sass:build": "sass styles/styles.scss styles/styles.css",
     "dev": "nodemon app.js",
-    "start": "node app"
+    "run-server": "node app.js",
+    "start": "concurrently npm:sass:build npm:run-server",
+    "build": "node ./database/setup.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "pg": "^8.5.1",
+    "stylelint": "^13.10.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "url": "^0.11.0"
   }
 }

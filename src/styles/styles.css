@@ -1,7 +1,8 @@
+/* stylelint-disable selector-class-pattern */
 html {
+  background-color: #ffffec;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  background-color: #ffffec;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -16,10 +17,10 @@ html {
 }
 
 .skrifa {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .skrifa_textbox {
@@ -43,18 +44,20 @@ html {
 .skrifa_checkbox {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .skrifa_checkbox_lysing {
-  margin: 0px;
+  margin: 0;
   margin-left: 0.5rem;
 }
 
 .skrifa_button {
-  width: 14rem;
+  display: flex;
   height: 3rem;
+  justify-content: center;
+  width: 48rem;
 }
 
 .skrifa_button_text {
@@ -68,18 +71,18 @@ html {
   width: 48rem;
 }
 
-/*******Table***********/
+/*******  Table  ***********/
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
+  font-family: arial, sans-serif;
   width: 48rem;
 }
 
 td,
 th {
-  border: 1px solid #000000;
-  text-align: left;
+  border: 1px solid #000;
   padding: 8px;
+  text-align: left;
 }
 
 @media all and (max-width: 900px) {

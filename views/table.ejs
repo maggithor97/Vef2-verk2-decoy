@@ -4,33 +4,26 @@
         <th>Nafn</th>
         <th>Athugasemd</th>
     </tr>
-    <%console.log(data.length)%>
     <%let n = data.length;%>
-    <% for(let i=0; i < n; i= i+1) {%>
+    <% data.forEach((person) => {%>
         
-        <% if(!data[i].anonymous){%>
+        
             <tr>
 
                 <td>
-                <%- formatDate(data[i].signed) -%>
+                <%- formatDate(person.signed) -%>
                 </td>
                 <td>
-                    <%- data[i].name -%>
+                    <% if(!person.anonymous){%>
+                        <%- person.name -%>
+                    <%} else {%>
+                        nafnlaus
+                    <%}%>
                 </td>
                 <td>
-                    <%- data[i].comment -%>
+                    <%- person.comment -%>
                 </td>
             </tr>
-        <%}%>
-    <%}%>
-                            <tr>
-                                <td>20.Apríl 2420</td>
-                                <td>Maggi</td>
-                                <td>Mér finnst lasagna gott og ég hata mánudaga.Mér finnst lasagna gott og ég hata
-                                    mánudaga.Mér finnst lasagna
-                                    gott og ég hata mánudaga.Mér finnst lasagna gott og ég hata mánudaga.Mér finnst
-                                    lasagna gott og ég hata
-                                    mánudaga.Mér finnst lasagna gott og ég hata mánudaga.</td>
-
-                            </tr>
+        
+    <%})%>
 </table>

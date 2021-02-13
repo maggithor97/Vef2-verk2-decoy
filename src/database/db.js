@@ -5,13 +5,15 @@ import fs from 'fs';
 // Ná í SQL file
 
 dotenv.config();
-/*
+
+
+/* Rann út á tíma, átti eftir að setja upp .env
+  svo ég gerði þetta the dirty way
 const {
   DATABASE_URL: connectionString,
 } = process.env;
 */
-
-const connectionString = 'postgres://maggi:maggithorSQL@localhost/v2';
+const connectionString = 'postgres://maggi:password@localhost/v2';
 
 
 if (!connectionString) {
@@ -22,7 +24,13 @@ if (!connectionString) {
 // TODO gagnagrunnstengingar
 
 
-async function query(q, values = []) {
+/**
+ * Fall sem tekur inn sql query streng og gögn, keyrir queryið og 
+ * skilar útkomunni.
+ * @param {string} q Query strengur til að keyra
+ * @param {gildi} values fylki af gildum sem passa í query strenginn 
+ */
+export async function query(q, values = []) {
   const client = new pg.Client({ connectionString });
 
   await client.connect();
@@ -39,7 +47,7 @@ async function query(q, values = []) {
 }
 
 /**
- * Gets SQL data
+ * Ná í alla signatures töfluna
  */
 export async function getAllData() {
   let database = query("SELECT * FROM signatures;")
@@ -47,13 +55,25 @@ export async function getAllData() {
   return database;
 }
 
+/**
+ * Setur gildi í signatures SQL töfluna
+ * @param {string} name nafi
+ * @param {string} kt 10 stafa kennitala
+ * @param {string} comment 0-400 stafa strengur
+ * @param {boolean} anonymous nafnlaus eða ekki
+ */
+export function insertData(name, kt, comment, anonymous) {
+  const q= `INSERT INTO signatures 
+  (name, nationalId, comment, anonymous) 
+  VALUES 
+  ($1, $2, $3, $4);`;
+  let bool;
+  if (anonymous === "on") {
+    bool = true;
+  } else {
+    bool = false;
+  }
+  const values = [name, kt, comment, bool]
+  return query(q, values);
 
-
-
-/******TEST 
-var bladra = query("select * from signatures;")
-bladra.then((res)=>{
-  console.log(res)
-})
-/**************** */
-
+}

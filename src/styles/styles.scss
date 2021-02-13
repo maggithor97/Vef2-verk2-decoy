@@ -1,99 +1,112 @@
+/* stylelint-disable selector-class-pattern */
 html {
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    background-color: rgba(255, 255, 236, 255);
-    max-width: 100%;
-    overflow-x: hidden;
+  background-color: rgba(255, 255, 236, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 .header_h1 {
-    width: min-content;
+  width: min-content;
 }
 
 .skrifa {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .skrifa_textbox {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 .skrifa_lysing {
-    width: 8rem;
+  width: 8rem;
 }
 
 .skrifa_textbox_text {
-    height: 2rem;
-    width: 40rem;
+  height: 2rem;
+  width: 40rem;
 }
+
 .skrifa_textbox_comment {
-    height: 4rem;
+  height: 4rem;
 }
 
 .skrifa_checkbox {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
+
 .skrifa_checkbox_lysing {
-    margin: 0px;
-    margin-left: 0.5rem;
+  margin: 0;
+  margin-left: 0.5rem;
 }
+
 .skrifa_button {
-    width: 14rem;
-    height: 3rem;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  width: 48rem;
 }
+
 .skrifa_button_text {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin: auto;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: auto;
 }
 
 .skrifa_lina {
-    border-top: 1px dashed rgb(109, 85, 54);
-    width: 48rem;
+  border-top: 1px dashed rgb(109, 85, 54);
+  width: 48rem;
 }
-/*******Table***********/
+
+/*******  Table  ***********/
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 48rem;
+  border-collapse: collapse;
+  font-family: arial, sans-serif;
+  width: 48rem;
 }
 
 td,
 th {
-    border: 1px solid #000000;
-    text-align: left;
-    padding: 8px;
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
 }
 
 @media all and (max-width: 900px) {
-    .skrifa_lysing {
-        width: 10vw;
-    }
+  .skrifa_lysing {
+    width: 10vw;
+  }
 
-    .skrifa_textbox_text {
-        width: 85vw;
-    }
-    .skrifa_button {
-        max-width: 90vw;
-    }
-    .skrifa_button_text {
-        font-size: 1.3rem;
-    }
+  .skrifa_textbox_text {
+    width: 85vw;
+  }
 
-    .skrifa_lina {
-        width: 95vw;
-    }
-    table {
-        width: 95vw;
-    }
+  .skrifa_button {
+    max-width: 90vw;
+  }
+
+  .skrifa_button_text {
+    font-size: 1.3rem;
+  }
+
+  .skrifa_lina {
+    width: 95vw;
+  }
+
+  table {
+    width: 95vw;
+  }
 }
